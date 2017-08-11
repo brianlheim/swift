@@ -7,6 +7,9 @@ if exists("b:current_syntax")
     finish
 endif
 
+" Set keywords to alphanumerics and : for `MARK:` / `FIXME:` / `TODO:`
+syn iskeyword 48-57,65-90,97-122,:
+
 syn keyword swiftKeyword
       \ associatedtype
       \ break
@@ -160,7 +163,7 @@ syn region swiftPreprocFalse start="^\s*#\<if\>\s\+\<false\>" end="^\s*#\(\<else
 
 syn match swiftAttribute /@\<\w\+\>/ skipwhite nextgroup=swiftType
 
-syn keyword swiftTodo MARK TODO FIXME contained
+syn keyword swiftTodo MARK: TODO: FIXME: contained
 
 syn match swiftCastOp "\<is\>" skipwhite nextgroup=swiftType
 syn match swiftCastOp "\<as\>[!?]\?" skipwhite nextgroup=swiftType
